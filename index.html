@@ -1,1 +1,96 @@
-index.html 查看
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>解题思路</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body class="jtsl">
+    <div class="js_dialog" id="dialogs" style="display:none;">
+      <div class="weui-mask"></div>
+      <div class="weui-dialog">
+        <div class="weui-dialog__hd"><strong class="weui-dialog__title">二年级下人教版</strong></div>
+        <div class="weui-dialog__bd">
+          <p>
+            <label>学年度</label>
+            <span>
+              <select>
+                <option>2015-2016学年度</option>
+                <option>2015-2016学年度</option>
+              </select>
+            </span>
+          </p>
+          <p>
+            <label>期数</label>
+            <span>
+              <select>
+                <option>16期</option>
+                <option>15期</option>
+              </select>
+            </span>
+          </p>
+        </div>
+        <div class="weui-dialog__ft">
+          <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+          <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="nav">
+        <h3><span class="nj"><a href="./xzbb.html">年级-版本</a></span>
+          <a href="./fav.html" class="fav"><img src="./images/fav.png" alt=""></a>
+        </h3>
+      </div>
+      <div class="content">
+        <ul class="stage">
+          <li>
+            <h3><span>数学</span><a class="more" href="#">更多</a></h3>
+            <ul>
+              <li><a href="./stage.html">17期</a></li>
+              <li class="new"><a href="./stage.html">17期</a></li>
+              <li><a href="./stage.html">17期</a></li>
+              <li><a href="./stage.html">17期</a></li>
+              <li><a href="./stage.html">17期</a></li>
+              <li><a href="./stage.html">17期</a></li>
+              <li><a href="./stage.html">17期</a></li>
+              <li><a href="./stage.html">17期</a></li>
+              <li><a href="./stage.html">17期</a></li>
+            </ul>
+          </li>
+          <li>
+            <h3><span>数学</span><a class="more" href="#">更多</a></h3>
+            <ul>
+              <li>17期</li>
+              <li class="new">17期</li>
+              <li>17期</li>
+              <li>17期</li>
+              <li>17期</li>
+              <li>17期</li>
+              <li>17期</li>
+              <li>17期</li>
+              <li>17期</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script>
+      $(function () {
+        $('#dialogs').on('click', '.weui-dialog__btn_default', function () {
+          $(this).parents('.js_dialog').fadeOut(200);
+        });
+
+        $(".more").on('click', function () {
+          $("#dialogs").fadeIn(200);
+        });
+      });
+    </script>
+  </body>
+
+</html>

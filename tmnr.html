@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>单题</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="PhotoSwipe/photoswipe.css" rel="stylesheet">
+    <link href="PhotoSwipe/default-skin/default-skin.css" rel="stylesheet">
+  </head>
+
+  <body class="tmnr">
+    <div class="container">
+      <div class="nav">
+        <h3>
+          <a href="./stage.html" class="goback"><img src="./images/back.png" alt="">目录</a>
+          <span class="fav_ico fav_f">已收藏</span>
+        </h3>
+      </div>
+      <div class="content">
+        <ul class="my-gallery">
+          <li class="wt">
+            <a href="images/3.png">
+              <img src="images/3.png" alt="">
+            </a>
+          </li>
+          <li class="da" style="display:none;">
+            <a href="images/4.png">
+              <img src="./images/4.png" alt="">
+            </a>
+          </li>
+        </ul>
+        <p>
+          <span class="jt jt_btn" data-flag="jt">解题</span>
+        </p>
+      </div>
+      <div class="pages">
+        <div class="swiper-container swiper-container-horizontal">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-no-swiping">1</div>
+            <div class="swiper-slide swiper-no-swiping">2</div>
+            <div class="swiper-slide swiper-no-swiping">3</div>
+            <div class="swiper-slide swiper-no-swiping">4</div>
+            <div class="swiper-slide swiper-no-swiping">5</div>
+            <div class="swiper-slide swiper-no-swiping">6</div>
+            <div class="swiper-slide swiper-no-swiping">7</div>
+            <div class="swiper-slide swiper-no-swiping">8</div>
+            <div class="swiper-slide swiper-no-swiping">9</div>
+            <div class="swiper-slide swiper-no-swiping">10</div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <!--<div class="pswp__counter"></div>-->
+            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+            <button class="pswp__button pswp__button--share" title="Share" style="display: none;"></button>
+            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div>
+          </div>
+          <button class="pswp
+						__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/zepto.min.js"></script>-->
+    <script src="./js/touch.js"></script>
+    <script src="./js/event.js"></script>
+    <script src="./js/swiper-3.4.2.jquery.min.js"></script>
+
+    <script src="js/initPhotoSwipe.js"></script>
+    <script src="PhotoSwipe/photoswipe.min.js"></script>
+    <script src="PhotoSwipe/photoswipe-ui-default.min.js"></script>
+    <script>
+      initPhotoSwipeFromDOM('.my-gallery');
+
+      var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 6,
+        centeredSlides: false,
+        paginationClickable: true,
+        spaceBetween: 0,
+      });
+
+      $(function () {
+        $(".swiper-slide").tap(function () {
+          $(this).addClass('selected').siblings().removeClass("selected");
+        })
+
+        $('.content').on('tap', '.jt_btn', function () {
+          var $this = $(this);
+          setTimeout(function () {
+            if ($this.attr('data-flag') == 'jt') {
+              $('.da').show();
+              $this.removeClass('jt').addClass('sq').text("收起").attr('data-flag', "sq");
+            } else if ($this.attr('data-flag') == 'sq') {
+              $('.da').hide();
+              $this.removeClass('sq').addClass('jt').text("解题").attr('data-flag', "jt");
+            }
+          }, 320);
+        })
+
+      })
+    </script>
+  </body>
+
+</html>

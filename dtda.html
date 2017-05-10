@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>多题</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body class="dtda">
+    <div class="container">
+      <div class="nav">
+        <h3>
+          <a href="./stage.html" class="goback"><img src="./images/back.png" alt="">目录</a>
+          <span class="fav_ico">收藏</span>
+          <span class="zoon_ico">放大</span>
+        </h3>
+      </div>
+      <div class="content">
+        <div class="wt" data-flag="flag" data-wt="./images/3.png" data-da="./images/3-dtda.png">
+          <img src="./images/3.png" alt="">
+        </div>
+        <div class="wt" data-flag="flag" data-wt="./images/3.png" data-da="./images/3-dtda.png">
+          <img src="./images/4.png" alt="">
+        </div>
+      </div>
+      <div class="pages">
+        <div class="swiper-container swiper-container-horizontal">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-no-swiping">1</div>
+            <div class="swiper-slide swiper-no-swiping">2</div>
+            <div class="swiper-slide swiper-no-swiping">3</div>
+            <div class="swiper-slide swiper-no-swiping">4</div>
+            <div class="swiper-slide swiper-no-swiping">5</div>
+            <div class="swiper-slide swiper-no-swiping">6</div>
+            <div class="swiper-slide swiper-no-swiping">7</div>
+            <div class="swiper-slide swiper-no-swiping">8</div>
+            <div class="swiper-slide swiper-no-swiping">9</div>
+            <div class="swiper-slide swiper-no-swiping">10</div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+    <div class="jte" style="display:none;">
+      <div class="close"><img src="./images/close.png" alt=""></div>
+      <img class="jt_btn" src="./images/jte.png" alt="">
+      <p>解题</p>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/touch.js"></script>
+    <script src="./js/event.js"></script>
+    <script src="./js/swiper-3.4.2.jquery.min.js"></script>
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 6,
+        centeredSlides: false,
+        paginationClickable: true,
+        spaceBetween: 0,
+      });
+      $(function () {
+        $(".swiper-slide").tap(function () {
+          $(this).addClass('selected').siblings().removeClass("selected");
+        })
+        $('.content').on("tap", ".wt", function () {
+          if ($(this).attr("data-flag") == 'flag') {
+            $(this).addClass('selected').removeClass("wt").addClass("da").siblings('.da.selected').removeClass('selected da').addClass('wt');
+            $('.jte').show();
+          }
+        })
+        $('.content').on("tap", ".da", function () {
+          if ($(this).attr('class').indexOf("selected") == -1) {
+            var img = $(this).attr("data-wt");
+            $(this).attr("data-flag", "flag").removeClass('da').addClass("wt").html('<img src="' + img + '" alt=""/>')
+          }
+        })
+        $('.close').tap(function (params) {
+          $('.jte').hide();
+          $('.da.selected').removeClass('da selected').addClass('wt');
+        })
+        $(".jt_btn").tap(function () {
+          $('.jte').hide();
+          var img = $('.da.selected').attr("data-da");
+          $('.da.selected').attr("data-flag", "").removeClass('selected').html('<img src="' + img + '" alt=""/>')
+        })
+      })
+    </script>
+  </body>
+
+</html>
